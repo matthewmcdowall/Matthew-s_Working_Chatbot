@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ai-chatbot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 1 --timeout 120 app:app
+    plan: free
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false  # Set this manually in Render dashboard
+      - key: SECRET_KEY
+        generateValue: true
+      - key: FLASK_ENV
+        value: production
