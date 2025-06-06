@@ -26,8 +26,8 @@ class ChatbotManager:
             raise ValueError("OPENAI_API_KEY environment variable is required")
         
         self.llm = ChatOpenAI(
-            model="gpt-3.5-turbo",
-            temperature=0.7,
+            model="gpt-4.0-mini",
+            temperature=1,
             openai_api_key=self.openai_api_key
         )
     
